@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>法规条款变更审阅</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#/">
+      <span class="brand-mark">§</span> 法规条款变更审阅
+    </a>
+    <nav class="mainnav">
+      <a href="#/" data-nav="home">批次列表</a>
+      <a href="#/upload" data-nav="upload">新建对齐</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app" class="container">
+  <!-- 视图由 JS 渲染 -->
+</main>
+
+<!-- 映射编辑弹层 -->
+<div id="modal-overlay" class="modal-overlay hidden">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <h3 id="modal-title">调整条款映射</h3>
+      <button class="icon-btn" id="modal-close" title="关闭">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cols">
+        <div class="modal-col">
+          <h4>旧版段落（可多选）</h4>
+          <div class="para-picker" id="picker-old"></div>
+        </div>
+        <div class="modal-col">
+          <h4>新版段落（可多选）</h4>
+          <div class="para-picker" id="picker-new"></div>
+        </div>
+      </div>
+      <div class="modal-row">
+        <label for="modal-type">变更类型（留空则按映射自动判定）</label>
+        <select id="modal-type">
+          <option value="">自动判定</option>
+          <option value="unchanged">无变更</option>
+          <option value="added">新增</option>
+          <option value="deleted">删除</option>
+          <option value="split">拆分</option>
+          <option value="merged">合并</option>
+          <option value="rewritten">改写</option>
+        </select>
+      </div>
+      <p class="modal-hint" id="modal-hint"></p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn btn-ghost" id="modal-cancel">取消</button>
+      <button class="btn btn-primary" id="modal-save">保存映射</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="/app.js"></script>
+</body>
+</html>

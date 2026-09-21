@@ -1,0 +1,17 @@
+services:
+  review-app:
+    build: .
+    container_name: regulation-review
+    ports:
+      - "8000:8000"
+    volumes:
+      - review-data:/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/healthz')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  review-data:
